@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 import java.time.Duration;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class AbstractBaseTest {
+abstract public class AbstractBaseTest {
 
     public AndroidDriver driver;
 
