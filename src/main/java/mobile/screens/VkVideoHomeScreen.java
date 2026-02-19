@@ -60,10 +60,10 @@ public class VkVideoHomeScreen extends BaseScreen {
     @AndroidFindBy(xpath = VkVideoHomeLocators.FIRST_VIDEO_CARD_XPATH)
     private WebElement openFirstVideoButton;
 
-    public FirstVideoScreen openFirstVideo() {
+    public VkVideoFirstVideoScreen openFirstVideo() {
         waitUntilElementIsVisible(openFirstVideoButton);
         openFirstVideoButton.click();
         log.info("First video: Opened");
-        return new FirstVideoScreen(driver);
+        return new VkVideoFirstVideoScreen(driver);
     }
 }

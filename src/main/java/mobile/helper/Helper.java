@@ -14,16 +14,16 @@ public class Helper {
     @Setter
     private static AppiumDriver driver;
 
-    public static boolean isTextOnScreen(String expectedText) {
+    /*public static boolean isTextOnScreen(String expectedText) {
         AppiumDriver driver = Initializer.getDriver();
         if (driver == null) {
             log.error("Driver is not initialized");
             throw new IllegalStateException("Driver is not initialized");
         }
         return Objects.requireNonNull(driver.getPageSource()).contains(expectedText);
-    }
+    }*/
 
-    public static String getAttribute(WebElement element, String attributeName) {
+    /*public static String getAttribute(WebElement element, String attributeName) {
         if (element == null) return null;
         try {
             String value = element.getAttribute(attributeName);
@@ -32,7 +32,7 @@ public class Helper {
             log.warn("Unable to get WebElement attribute '{}'", attributeName, e);
             return null;
         }
-    }
+    }*/
 
     public static void sleep(long millis) {
         try {

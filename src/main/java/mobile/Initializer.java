@@ -29,18 +29,18 @@ public class Initializer {
         }
     }
 
-    public static AppiumDriver getDriver() {
+    public static AppiumDriver getDriver(App app) {
         if (driver == null) {
-            initDriver();
+            initDriver(app);
         }
         return driver;
     }
 
-    public static void initDriver() {
+    public static void initDriver(App app) {
         try {
             URI appiumServerURI = new URI(config.getProperty("appium.server.url"));
             URL appiumServerURL = appiumServerURI.toURL();
-            driver = new AndroidDriver(appiumServerURL, getOptions());
+            driver = new AndroidDriver(appiumServerURL, getOptions(app));
             log.info("Driver initialized successfully");
         } catch (Exception e) {
             log.error("Driver initialization failed", e);
@@ -48,13 +48,13 @@ public class Initializer {
         }
     }
 
-    private static UiAutomator2Options getOptions() {
+    private static UiAutomator2Options getOptions(App app) {
         return new UiAutomator2Options()
                 .setDeviceName(config.getProperty("device.name"))
                 .setPlatformName(config.getProperty("platform.name"))
                 .setAutomationName(config.getProperty("automation.name"))
-                .setAppPackage(config.getProperty("app.package"))
-                .setAppActivity(config.getProperty("app.activity"))
+                .setAppPackage(app.getAppPackage())
+                .setAppActivity(app.getAppActivity())
                 .setNewCommandTimeout(Duration.ofSeconds(Integer.parseInt(config.getProperty("new.command.timeout"))));
     }
 
