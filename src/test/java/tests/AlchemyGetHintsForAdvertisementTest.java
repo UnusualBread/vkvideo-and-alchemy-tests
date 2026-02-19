@@ -20,7 +20,9 @@ public class AlchemyGetHintsForAdvertisementTest extends BaseTest {
         alchemyHomeScreen
                 .openGameMenu()
                 .openHintsPanel()
-                .checkHintsCount()
-                .watchAdvertisement();
+                .checkStartHintsCount()
+                .watchAdvertisement()
+                .closeAdvertisement()
+                .checkEndHintsCount();
     }
 }

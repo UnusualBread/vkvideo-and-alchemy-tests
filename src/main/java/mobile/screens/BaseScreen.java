@@ -27,8 +27,18 @@ public class BaseScreen {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
+    public void waitUntilElementIsVisible(WebElement element, Duration duration) {
+        WebDriverWait wait = new WebDriverWait(driver, duration);
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
     public WebElement waitUntilElementIsVisible(By byElement) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(byElement));
+    }
+
+    public WebElement waitUntilElementIsVisible(By byElement, Duration duration) {
+        WebDriverWait wait = new WebDriverWait(driver, duration);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(byElement));
     }
 
